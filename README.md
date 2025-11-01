@@ -21,3 +21,10 @@ As the time goes by, I will keep updating this everyday NONSTOP!
 - Since I use WSL, I had to go beyond simply opening the index.html file and learned to run a server inside my project folder - something I didn't know was possible before
 - Using WSL is significantly increasing my capabilities for software testing within my applications
 - Learned how to connect MetaMask (or pretty much any EVM wallet) to my own website
+
+#### DAY 2️⃣ - Last Commit [HERE](https://github.com/murilloramos/full-stack-web3-cyfrin/commit/546ae4cea50c54df8129625e386ec5d1ffe186b6)
+- Started working with the fund function, which is essentially the practice of sending money to a smart contract so I can test its functionality
+- Learned how to use the createPublicClient function of Viem, that is a way for me to talk with the blockchain by connecting the network using a RPC so I can have access to reading and simulating blockchain data
+- Also used the createWalletClient function so I can send transactions
+- Before sending "real transactions" I had access to the simulateContract function, that has the capability for simulating a function call, adding some values like the current chain, address of the contract, ABI and so on
+- Specifically for this chain that I am simulating with the previous mentioned function, I had to use the getCurrentChain function because Viem is designed to be **explicit** and **modular** so basically it doesn't assume what chain the MetaMask is currently connected on. So I need to define by myself by pasing a "chain object"
