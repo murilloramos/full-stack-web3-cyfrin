@@ -38,4 +38,6 @@ As the time goes by, I will keep updating this everyday NONSTOP!
 ### DAY 5️⃣ - Last Commit [HERE]()
 - Created a withdraw function, capable of getting all the ETH funded inside the contract, also had to create a quick test "Withdraw" button on the html file
 - Worked a little with typescript, the concept of compiling a typescript file, so it turns to a javascript file for the web browser to understand it, since it only understand .js files
+- Had to spend a lot of time trying to figure it out how this whole thing of ts for js works, so this took me a giant amount of time
+- Used Vite a modern frontend built to, that acts like a "bundler" where basically it takes all my typescript files and compile it to javascript, a amazing tool because I don't need tok keep manually compiling all the js files
   
