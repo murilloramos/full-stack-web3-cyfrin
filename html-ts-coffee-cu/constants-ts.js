@@ -1,5 +1,8 @@
-export const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
-export const abi = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.abi = exports.contractAddress = void 0;
+exports.contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+exports.abi = [
     {
         inputs: [{ internalType: "address", name: "priceFeed", type: "address" }],
         stateMutability: "nonpayable",
@@ -121,4 +124,4 @@ export const abi = [
         stateMutability: "nonpayable",
         type: "function",
     },
-]
+];

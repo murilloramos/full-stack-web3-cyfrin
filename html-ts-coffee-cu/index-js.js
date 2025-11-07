@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fundButton = document.getElementById("fundButton")
     const ethAmountInput = document.getElementById("ethAmount")
     const balanceButton = document.getElementById("balanceButton")
+    const withdrawButton = document.getElementById("withdrawButton")
 
     let walletClient
     let publicClient
@@ -21,6 +22,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } else {
             connectButton.innerHTML = "Please install the MetaMask Application!"
+        }
+    }
+
+    async function withdraw() {
+        console.log("Withdrawing funds...")
+        if (typeof window.ethereum !== "undefined") {
+            walletClient = createWalletClient({
+                transport: custom(window.ethereum),
+            })
+            const [connectedAccount] = await walletClient.requestAddresses()
+            const currentChain = await getCurrentChain(walletClient)
+
+            publicClient = createPublicClient({
+                transport: custom(window.ethereum),
+            })
+            const { request } = await publicClient.simulateContract({
+                address: contractAddress,
+                abi: abi,
+                functionName: "withdraw",
+                account: connectedAccount,
+                chain: currentChain,
+            })
+
+            const hash = await walletClient.writeContract(request)
+            console.log("Withdrawal transaction hash:", hash)
+        } else {
+            connectButton.innerHTML = "Please install MetaMask!"
         }
     }
 
@@ -88,4 +116,5 @@ document.addEventListener('DOMContentLoaded', function () {
     connectButton.onclick = connect
     fundButton.onclick = fund
     balanceButton.onclick = getbalance
+    withdrawButton.onclick = withdraw
 })
